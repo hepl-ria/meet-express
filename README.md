@@ -1,6 +1,6 @@
 # meet-express
 
-> Base exercise to discover [express](http://expressjs.com) web framework for node.js. 
+> Base exercise to discover [express](http://expressjs.com) web framework for node.js.
 
 * * *
 
@@ -16,9 +16,20 @@ Ces fichiers servent de base d'exercice pour le cours de découverte du framewor
 
 ## Consignes
 
-Notre but est de reproduire, avec **express**, les comportements du script PHP de l'exercice [meet-ajax](https://github.com/hepl-mmi/meet-ajax), du cours de Multimédia de deuxième. 
+Notre but est de reproduire, avec **express**, les comportements du script PHP de l'exercice [meet-ajax](https://github.com/hepl-mmi/meet-ajax), du cours de Multimédia de deuxième.
 
-Notre serveur express gérera deux routes : la racine, qui servira notre page, générée à partir des données d'un fichier `buddies.json`, et une route séparée, utilisant la méthode `POST`, pour encoder de nouvelles données dans ce fichier.
+Notre serveur express gérera deux routes : la racine, qui servira notre page, générée à partir des données d'un fichier `data/buddies.json`, et une route séparée, utilisant la méthode `POST`, pour encoder de nouvelles données dans ce fichier.
+
+## Déroulement
+
+Afin de découvrir express de manière progressive, nous allons développer notre petite application en suivant ces étapes :
+
+1. Préparation du projet, installation d'express
+1. Mise en place d'express, première route et *hello world*
+1. Notion de middleware, premier middleware et middleware externes
+1. Moteur de template, installation et découverte de [handlebars](http://handlebarsjs.com/)
+1. Notion de routeur express, réorganisation de nos routes et controlleurs
+1. Récupération des données POST, écriture dans un fichier
 
 * * *
 
