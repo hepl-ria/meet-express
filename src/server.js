@@ -1,4 +1,3 @@
-// @flow
 /* leny/meet-express
  *
  * /server.js - main entry point

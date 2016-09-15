@@ -1,4 +1,3 @@
-// @flow
 /* leny/meet-express
  *
  * /models/buddies.js - Buddies getter/setter
@@ -7,20 +6,15 @@
  * started at 15/09/2016
  */
 
- type Buddy = {
-     name:string,
-     description:string,
- };
-
 import { readFile, writeFile } from "fs";
 
 const DATAFILE_PATH = `${ __dirname }/../../data/buddies.json`;
 
-let fGet:Function, fSet:Function;
+let fGet, fSet;
 
-fGet = function( fNext:Function ) {
-    readFile( DATAFILE_PATH, "utf-8", ( oError, sFileContent:string ) => {
-        let aBuddies:Array<Buddy> = [];
+fGet = function( fNext ) {
+    readFile( DATAFILE_PATH, "utf-8", ( oError, sFileContent ) => {
+        let aBuddies = [];
 
         if ( oError ) {
             return fNext( oError );
@@ -36,10 +30,8 @@ fGet = function( fNext:Function ) {
     } );
 };
 
-fSet = function( aBuddies:Array<Buddy>, fNext:Function ) {
-
+fSet = function( aBuddies, fNext ) {
     writeFile( DATAFILE_PATH, JSON.stringify( aBuddies ), "utf-8", fNext );
-
 };
 
 export {

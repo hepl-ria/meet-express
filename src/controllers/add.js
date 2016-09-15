@@ -1,4 +1,3 @@
-// @flow
 /* leny/meet-express
  *
  * /controllers/add.js - Add buddy controller
@@ -7,20 +6,15 @@
  * started at 15/09/2016
  */
 
-type Buddy = {
-    name:string,
-    description:string,
-};
-
 import * as Buddies from "../models/buddies";
 
-export default function( oRequest:Object, oResponse:Object ) {
-    Buddies.get( ( oError, aBuddies:Array<Buddy> ) => { // eslint-disable-line consistent-return
+export default function( oRequest, oResponse ) {
+    Buddies.get( ( oError, aBuddies ) => { // eslint-disable-line consistent-return
         const POST = oRequest.body;
 
-        let sName:string = ( POST.name || "" ).trim(),
-            sDescription:string = ( POST.description || "" ).trim(),
-            oNewBuddy:Buddy;
+        let sName = ( POST.name || "" ).trim(),
+            sDescription = ( POST.description || "" ).trim(),
+            oNewBuddy;
 
         if ( oError ) {
             console.log( `Error: ${ oError }` ); // eslint-disable-line no-console

@@ -1,4 +1,3 @@
-// @flow
 /* leny/meet-express
  *
  * /controllers/home.js - Controller for homepage
@@ -9,9 +8,9 @@
 
 import * as Buddies from "../models/buddies";
 
-export default function( oRequest:Object, oResponse:Object ) {
+export default function( oRequest, oResponse ) {
 
-    Buddies.get( ( oError:Error, aBuddies:Array<Object> ) => {
+    Buddies.get( ( oError, aBuddies ) => {
         if ( oError ) {
             console.log( "Error:", oError ); // eslint-disable-line no-console
         }

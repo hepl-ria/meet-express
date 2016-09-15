@@ -1,4 +1,3 @@
-// @flow
 /* leny/meet-express
  *
  * /routes/main - Main routes
