@@ -57,3 +57,17 @@ oApp.get( "/", function( oRequest, oResponse){
     "name": "Dylan Schirino"
 
   } ); // pour lui dire quel template on utilise ! donc index dans views et le deuxieme parametre c'est un objet avec des variables
+
+
+
+
+  ### Boucle avec handlebars.js
+
+      <ul>
+        {{#each buddies}}
+          <li>
+            <strong>{{name}}</strong>
+            <em>{{description}}</em>
+          </li>
+        {{/each}}
+      </ul>
