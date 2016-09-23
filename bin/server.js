@@ -30,6 +30,7 @@ oApp.use( bodyParser.json() );
     // middleware
     //fNext est une fonction de express
 oApp.use( logMiddleware );
+oApp.use( express.static( __dirname + "/../static" ) );
 
     // Configure template engine
     // Pas besoin d'un require pour HBS c'est express qui le fait pour nous.
