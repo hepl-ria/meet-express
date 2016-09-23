@@ -8,6 +8,7 @@ var express = require( "express" ),
     responseTime = require( "response-time" ),
     bodyParser = require( "body-parser" ), // Permet d'interpreter les requêtes en post
     logMiddleWare = require( "./middlewares/log" ), // on peut ne pas mettre le .js à log
+    mainRoutes = require( "./routes/main" ),
     oApp;
 
 // setup express
@@ -26,11 +27,7 @@ oApp.set( "views", __dirname + "/views" ); // On crée dans /bin un dossier /vie
 oApp.set ( "view engine", "hbs" );
 
 // Configuration routes
-oApp.get( "/", function( oRequest, oResponse ) { // oApp c'est express. On lui dit que la route d'entrée (en GET), la function que l'on a définit sera exécutée
-  oResponse.render( "index.hbs", {
-    "name": "Jimmy"
-  } );
-})
+oApp.use ( mainRoutes );
 
 
 oApp.listen( 8080, function(){ // La function est exécutée si tout se passe bien.
