@@ -21,6 +21,7 @@ oApp.use ( bodyParser.urlencoded( {
 } ) );
 oApp.use( bodyParser.json() );
 oApp.use( logMiddleWare );
+oApp.use( express.static( __dirname + "/../static" ) ); // Pour tous les fichiers static, va voir dans le fichier static
 
 // Configure template engine
 oApp.set( "views", __dirname + "/views" ); // On crée dans /bin un dossier /views

@@ -28,5 +28,5 @@ exports.get = function( fNext ) {
 };
 
 exports.set = function( aBuddies, fNext ) {
-  // TODO: write buddies.json
+  fs.writeFile( sDataFilePath, JSON.stringify( aBuddies ), "utf-8", fNext ); // JSON est un objet de node.js, writeFile est un objet d'FS.
 };

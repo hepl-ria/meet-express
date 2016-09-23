@@ -14,6 +14,17 @@ module.exports = function( oRequest, oResponse ) { // la function que l'on a dé
       // TODO: message errors!
     }
 
+  if ( oRequest.query.clean != null ) {
+    return Buddies.set( [], function( oSaveError) {
+      if (oSaveError) {
+        console.log("SaveError:", oSaveError);
+      }
+      oResponse.render( "index", {
+        "buddies": []
+      } );
+    } );
+  }
+
   oResponse.render( "index.hbs", {
     "buddies": aBuddies || []
     } );
