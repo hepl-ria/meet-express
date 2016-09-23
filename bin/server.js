@@ -5,12 +5,20 @@
 "user strict";
 
 var express = require( "express" ),
+    responseTime = require( "response-time" ),
+    bodyParser = require( "body-parser" ), // Permet d'interpreter les requêtes en post
     logMiddleWare = require( "./middlewares/log" ), // on peut ne pas mettre le .js à log
     oApp;
 
 // setup express
 oApp = express();
 
+
+oApp.use( responseTime() ); // Ça rajoute un header response-time qui mesure le temps de réponse du serveur (voir onglet network)
+oApp.use ( bodyParser.urlencoded( {
+  "extended": true
+} ) );
+oApp.use( bodyParser.json() );
 oApp.use( logMiddleWare );
 
 
