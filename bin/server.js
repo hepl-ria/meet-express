@@ -32,6 +32,8 @@ oApp.use( bodyParser.json() );
 
 oApp.use( logMiddleware );
 
+oApp.use( express.static( __dirname + "/../static" ) ); // pour lui dire ou se trouve les fichier js et css donc les fichiers static
+
 //configure temlate engine
 
 oApp.set( "views", __dirname + "/views" ); // on lui dit ou se trouve le chemin du dossier du fichier courant, ici on est dans srv et dirname c'est bin et dans bin on crée un dossier views

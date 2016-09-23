@@ -24,7 +24,7 @@
 
     try{
     aBuddies = JSON.parse( sFileContent ); // le JSOn est disponible directement
-  } catch( oJSONError){ // on attrape l'exeption de JSON et on la transforme en erreur 
+  } catch( oJSONError){ // on attrape l'exeption de JSON et on la transforme en erreur
     return fNext( oError );
   }
 
@@ -36,5 +36,6 @@
  exports.set = function( aBuddies, fNext ){
 
    //TODO: write buddies.json
+   fs.writeFile( sDataFilePath, JSON.stringify( aBuddies ), "utf-8", fNext ); //on écrit dans le fichier en json
 
  };
