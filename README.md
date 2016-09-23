@@ -46,3 +46,14 @@ il existe des middleware externe qui sont diponible dans NPM
 
 
 Comment rendre une fonction accessible dans un autre fichier on fait module.exports = la fonction qu'on veut.
+
+Body parser : middleware très utile pour node qu'on aura tout le temps besoin
+
+ceci c'est pour afficher le template index
+oApp.get( "/", function( oRequest, oResponse){
+
+  oResponse.render( "index", {
+
+    "name": "Dylan Schirino"
+
+  } ); // pour lui dire quel template on utilise ! donc index dans views et le deuxieme parametre c'est un objet avec des variables
