@@ -4,9 +4,18 @@
 */
 
 
-module.exports =
-function( oRequest, oResponse ) { // la function que l'on a définit sera exécutée
+var Buddies = require( "../models/buddies" ); // On inclu le modèle buddies
+
+module.exports = function( oRequest, oResponse ) { // la function que l'on a définit sera exécutée
+
+  Buddies.get( function( oError, aBuddies ) {
+    if (oError) {
+      console.log("Error:", oError );
+      // TODO: message errors!
+    }
+
   oResponse.render( "index.hbs", {
-    "name": "Jimmy"
+    "buddies": aBuddies || []
+    } );
   } );
 };
