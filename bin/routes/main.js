@@ -1,4 +1,4 @@
-/* hepl-ria/meet-express
+/* ria/meet-express
  *
  * /bin/routes/main.js - Main routes
  *

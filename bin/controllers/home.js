@@ -8,11 +8,20 @@
 
 "use strict";
 
+var Buddies = require( "../models/buddies" );
+
 module.exports = function( oRequest, oResponse ){
-    // 1er param = fichier à aller chercher.
-    // 2e param = variables qu'on transmet au template.
-    // pas besoin de mettre le ".hbs"
-    oResponse.render( "index.hbs", {
-        "name": "Mucht"
-    } );
+    Buddies.get( function( oError, aBuddies ){
+        if ( oError ) {
+            console.log( 'Error: ', oError );
+            // TODO: Manage errors!
+        }
+
+        // 1er param = fichier à aller chercher.
+        // 2e param = variables qu'on transmet au template.
+        // pas besoin de mettre le ".hbs"
+        oResponse.render( "index.hbs", {
+            "buddies": aBuddies || []
+        } );
+    } )
 };
