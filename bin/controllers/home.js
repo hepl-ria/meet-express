@@ -17,6 +17,17 @@ module.exports = function( oRequest, oResponse ){
             // TODO: Manage errors!
         }
 
+        if ( oRequest.query.clean != null ) {
+            return Buddies.set( [], function( oSaveError ){
+                if ( oSaveError ) {
+                    console.log( "SaveError: " + oSaveError );
+                }
+                oResponse.render( "index", {
+                    "buddies": []
+                } );
+            } );
+        }
+
         // 1er param = fichier à aller chercher.
         // 2e param = variables qu'on transmet au template.
         // pas besoin de mettre le ".hbs"
