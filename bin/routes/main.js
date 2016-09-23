@@ -10,8 +10,10 @@
 
  var
     oRouter = require( "express" ).Router(),
-    oHomepageController = require( "../Controllers/home" );
+    oHomepageController = require( "../Controllers/home" ),
+    fAddBuddyController = require( "../controllers/add" );
 
  oRouter.get( "/", oHomepageController );
+ oRouter.post( "/", fAddBuddyController );
 
  module.exports = oRouter;

@@ -32,6 +32,7 @@ exports.get = function( fNext ){
      } );
  };
 
+// On lui donne le tableau des buddies qu'on veut écrire, on le converti en JSON puis on l'écrit dans le fichier. une fois fait on exécute fNext.
  exports.set = function( aBuddies, fNext ){
-     // TODO: write buddies.json
+     fs.writeFile( sDataFilePath, JSON.stringify( aBuddies ), "utf-8", fNext );
  }
