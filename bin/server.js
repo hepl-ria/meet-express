@@ -37,7 +37,7 @@ oApp.use( express.static( __dirname + "/../static" ) ); // pour lui dire ou se t
 //configure temlate engine
 
 oApp.set( "views", __dirname + "/views" ); // on lui dit ou se trouve le chemin du dossier du fichier courant, ici on est dans srv et dirname c'est bin et dans bin on crée un dossier views
-oApp.set ( "view engine", "hbs" ); // et ici on lui dit le moteur a utiliser donc handlebars
+oApp.set ( "view engine", "pug" ); // et ici on lui dit le moteur a utiliser donc handlebars
 
 
 //configure routes ( le controlleurs de route c'est la fonction ci-dessous)
