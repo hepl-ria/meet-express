@@ -15,6 +15,7 @@
     bodyParser = require( "body-parser" ),
     logMiddleware = require( "./middlewares/log.js" ),
     mainRoutes = require( "./routes/main" ),
+    pug = require('pug'),
     oApp;
 
 // setup express
@@ -35,7 +36,7 @@ oApp.use( express.static( __dirname + "/../static" ) );
     // Configure template engine
     // Pas besoin d'un require pour HBS c'est express qui le fait pour nous.
 oApp.set( "views", __dirname + "/views" );
-oApp.set( "view engine", "hbs" );
+oApp.set( "view engine", "pug" );
 
     // setup une route
     // 1er argument donne la route. Le 2e donne une fonction qui sera exécuté si on accede à ce chemin en GET.
