@@ -18,10 +18,11 @@ html( lang='fr' )
                     div.row( id='buddies-container' )
                         each buddy in buddies
                             div.col-md-4
-                                div.thumbnail( title='${ buddy.description }' )
-                                    img( src='http://api.adorable.io/avatars/90/${ buddy.name }.png' alt='Avatar de ${ buddy.name }' width='90' height='90' )
+                                div.thumbnail( title= buddy.description )
+                                    img( src='http://api.adorable.io/avatars/90/' + buddy.name + '.png' alt='Avatar de ' + buddy.name width='90' height='90' )
                                     div.caption
-                                        strong ${name}
+                                        strong= buddy.name
+                                        span=' - ' + buddy.description
                         else
                             div.col-md-12
                                 div.well Vous n'avez pas encore ajouté de coupaing !
