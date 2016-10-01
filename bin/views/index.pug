@@ -1,0 +1,86 @@
+//- index.pug
+doctype html
+html( lang='fr' )
+    head
+        meta( charset='utf-8' )
+        title( lang='en' ) Meet ExpressJS
+        link( rel='stylesheet' href='css/bootstrap.min.css' )
+    body
+        main.container
+            header.row.page-header
+                h1.col-md-12
+                    span( lang='en' ) Meet ExpressJS
+                    small Votre nouveau super-coupaing
+            section.content.row
+                h2.hidden Un exercice haut en couleurs...
+                div.col-md-4
+                    h3 L'album des coupaings
+                    div.row( id='buddies-container' )
+                        each buddy in buddies
+                            div.col-md-4
+                                div.thumbnail( title='${ buddy.description }' )
+                                    img( src='http://api.adorable.io/avatars/90/${ buddy.name }.png' alt='Avatar de ${ buddy.name }' width='90' height='90' )
+                                    div.caption
+                                        strong ${name}
+                        else
+                            div.col-md-12
+                                div.well Vous n'avez pas encore ajouté de coupaing !
+                    div.col-md-4
+                        h3 Ajouter un coupaing
+                        form( action='./' method='post' )
+                            fieldset
+                                if hasError
+                                    div.alert.alert-danger
+                                        strong Oops ! On dirait que vous avez oublié de remplir chaque champs du formulaire !
+                                if hasErrors
+                                    div.form-group.has-error
+                                else
+                                    div.form-group.post.name
+                                        label.control-label( for='name' ) Nom:
+                                        if hasErrors
+                                            input.form-control( type='text' name='name' placeholder='Nom du coupaing' value='${post.name}' )
+                                        else
+                                            input.form-control( type='text' name='name' placeholder='Nom du coupaing' value='' )
+
+                                if hasErrors
+                                    div.form-group.has-error
+                                else
+                                    div.form-group.post.name
+                                        label.control-label( for='description' ) Description:
+                                        if hasErrors
+                                            textarea.form-control( name='description' placeholder='Description du coupaing' ) ${post.description}
+                                        else
+                                            textarea.form-control( name='description' placeholder='Description du coupaing' )
+                                    p.help-block Faites court, on manque de place !
+                                div.text-center
+                                    button.btn.btn-info( type='submit' ) Ajouter un coupaing
+                        hr
+                        h3 Supprimer les coupaings
+                        p Ils seront perdus à jamais, mais vous pourrez toujours en créer d'autres…
+                        div.text-center
+                            a.btn.btn-danger( href='./?clean' ) Supprimer les coupaings
+                    div.col-md-4
+                        h3 Qu'est-ce qui se passe ici ?
+                        p Sur cette page, un script PHP affiche une série de <em>coupaings</em>, stockés dans un fichier json.
+                        p Un formulaire permet d'ajouter un nouveau coupaing et de la sauvegarder, toujours via PHP.
+                        hr
+                        h3 Qu'est-ce qu'on va faire ?
+                        p Chaque ajout de coupaing entraîne un rechargement de la page, c'est quand même pas très cool. Grâce à <strong>jQuery</strong>, nous allons faire cette opération en AJAX.<br/>Ça va nous demander de modifier <em>un peu</em> le code PHP.
+                hr
+                footer.row
+                    div.col-md-6.col-md-offset-6.text-right
+                        small RIA 2016-2017 -
+                            a( href='https://github.com/hepl-ria/meet-express' ) hepl-ria/meet-express
+            script( type='text/template' id='form-error-message' )
+                div.alert.alert-danger
+                    <strong>Oops !</strong> On dirait que vous avez oublié de remplir chaque champs du formulaire !
+
+            script( type='text/template' id='buddy-element' )
+                div.col-md-4
+                    div.thumbnail( title='' )
+                        img( src='' alt='' width='90' height='90' )
+                        div.caption
+                            strong
+
+            script( src='js/jquery.min.js' )
+            script( src='js/script.js' )

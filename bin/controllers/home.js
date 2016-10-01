@@ -30,8 +30,8 @@ module.exports = function( oRequest, oResponse ){
 
         // 1er param = fichier à aller chercher.
         // 2e param = variables qu'on transmet au template.
-        // pas besoin de mettre le ".hbs"
-        oResponse.render( "index.hbs", {
+        // pas besoin de mettre le ".hbs" ou ".pug"
+        oResponse.render( "index", {
             "buddies": aBuddies || []
         } );
     } )
