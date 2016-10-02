@@ -8,62 +8,35 @@ html(lang="fr")
 
     body
       main.container
-        header.row.page-header
-         h1.col-md-12
-          span(lang="en")= "Meet Express"
-          small= "Votre nouveau super coupaing"
+        include header.pug
 
         section(class="content row")
-          h2.hidden= "Un texte haut en couleurs"
-
-          div.col-md-4
-            h3= "L'album des coupaing"
-            div.row#buddies-container
-              div.col-md-4
-                div.thumbnail
-                  img(src="http://api.adorable.io/avatars/90/"+buddies.name+".png", alt="Avatar de ", width="90" height="90")
-                  div.caption
-                      strong= "name"
-
-            div.col-md-12
-            div.well= "Vous n'avez pas encore ajouté de coupaing"
+          include show.pug
 
 
           div.col-md-4
-            h3= "Ajouter un coupaing"
-            form(action="./",method="post")
-              fieldset
-                  div.alert.alert-danger
-                    strong= "Oops !"
-                    p= "On dirait que vous avez oublié de remplir chaque champs du formulaire !"
-                  div.form-group
-                    label(clas="control-label",for="name")= "Nom"
-                    input(type="text" class="form-control" name="name" placeholder="Nom du coupaing" value="")
-
-                  div.form-group
-                    label(clas="control-label",for="description")= "Description:"
-                    input(type="text" class="form-control" name="name" placeholder="Description du coupaing" value="")
-                    p.help-block= "Faites court, on manque de place !"
-                  div.text-center
-                    button(type="submit", class="btn btn-info")= "Ajouter un coupaing"
-            hr
-            h3= "Supprimer les coupaing"
-            p= "Ils seront perdus à jamais, mais vous pourrez toujours en créer d'autres…"
-            div.text-center
-              a(href="./?clean",class="btn btn-danger")= "Supprimer les coupaing"
+            include add.pug
 
           div.col-md-4
-            h3= "Qu'est-ce qui se passe ici?"
-            p= "Sur cette page, un script PHP affiche une série de"
-                em=" coupaings"+"stockés dans un fichier json."
+            include explaination.pug
+        hr
+        footer.row
+          div.col-md-6.col-md-offset-6.text-right
+            small="MMI 2015-2016 - "
+              a(href="https://github.com/hepl-mmi/meet-ajax")= "hepl-mmi/meet-ajax"
 
-            p= "Un formulaire permet d'ajouter un nouveau coupaing et de la sauvegarder, toujours via PHP."
-            hr
-            h3= "Qu'est-ce qu'on va faire?"
-            p Chaque ajout de coupaing entraîne un rechargement de la page, cest quand même pas très cool. Grâce à
-              strong= "jQuery"
 
-       hr
+      script#form-error-message(type="text/template")
+        div.alert.alert-danger
+          strong= "Oops!"
+          p= "On dirait que vous avez oublié de remplir chaque champs du formulaire !"
+
+      script#buddy-element(type="text/template")
+        div.col-md-4
+          div.thumbnail(title="")
+            img(src="",alt="",width="90",height="90")
+            div.caption
+              strong
 
 
       script(src="js/jquery.min.js")
