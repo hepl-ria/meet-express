@@ -1,0 +1,15 @@
+script#form-error-message(type="text/template")
+  div.alert.alert-danger
+    strong= "Oops!"
+    p= "On dirait que vous avez oublié de remplir chaque champs du formulaire !"
+
+script#buddy-element(type="text/template")
+  div.col-md-4
+    div.thumbnail(title="")
+      img(src="",alt="",width="90",height="90")
+      div.caption
+        strong
+
+
+script(src="js/jquery.min.js")
+script(src="js/script.js")
