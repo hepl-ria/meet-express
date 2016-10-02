@@ -1,0 +1,35 @@
+h3= "Ajouter un coupaing"
+form(action="./",method="post")
+  fieldset
+    if hasErrors
+      div.alert.alert-danger
+        strong= "Oops !"
+        p= "On dirait que vous avez oublié de remplir chaque champs du formulaire !"
+    if hasErrors
+      div.form-group.has-error
+    else
+      div.form-group
+        label(clas="control-label",for="name")= "Nom"
+        if hasErrors
+          input(type="text" class="form-control" name="name" placeholder="Nom du coupaing" value=post.name)
+        else
+          input(type="text" class="form-control" name="name" placeholder="Nom du coupaing" value="")
+
+    if hasErrors
+      div.form-group.has-error
+    else
+      div.form-group
+        label(clas="control-label",for="description")= "Description:"
+        if hasErrors
+          textarea.form-control(name="description" placeholder="Description du coupaing" value=post.description)
+        else
+          textarea.form-control(name="description" placeholder="Description du coupaing" value="")
+
+        p.help-block= "Faites court, on manque de place !"
+      div.text-center
+        button(type="submit", class="btn btn-info")= "Ajouter un coupaing"
+hr
+h3= "Supprimer les coupaing"
+p= "Ils seront perdus à jamais, mais vous pourrez toujours en créer d'autres…"
+div.text-center
+  a(href="./?clean",class="btn btn-danger")= "Supprimer les coupaing"

@@ -1,0 +1,28 @@
+doctype html
+html(lang="fr")
+    head
+
+        meta(charset="utf-8")
+        title= "Meet AJAX"
+        link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+
+    body
+      main.container
+        include header.pug
+
+        section(class="content row")
+          include show.pug
+
+
+          div.col-md-4
+            include add.pug
+
+          div.col-md-4
+            include explaination.pug
+        hr
+        footer.row
+          div.col-md-6.col-md-offset-6.text-right
+            small="MMI 2015-2016 - "
+              a(href="https://github.com/hepl-mmi/meet-ajax")= "hepl-mmi/meet-ajax"
+
+        include script.pug

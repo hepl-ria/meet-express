@@ -34,3 +34,40 @@ Afin de découvrir express de manière progressive, nous allons développer notr
 * * *
 
 Les styles de l'exercice sont générés _via_ [bootstrap](http://getbootstrap.com), et les avatars sont générés _via_ l'API de [Adorable](http://adorable.io/).
+
+## Note de DS
+
+Autre serveur de style express : Koa
+
+"main": "bin/server.js" on utilise ce dossier pour les fichiers compiler et le point d'entrée sera serveur.js
+
+Concept des middleware : fonction qui va etre appelé au milieu d'une requete. la requete arrive a express elle passe par des middleware qui vont modifier changer etc et puis envoyez la reponse a la routes.
+il existe des middleware externe qui sont diponible dans NPM
+
+
+Comment rendre une fonction accessible dans un autre fichier on fait module.exports = la fonction qu'on veut.
+
+Body parser : middleware très utile pour node qu'on aura tout le temps besoin
+
+ceci c'est pour afficher le template index
+oApp.get( "/", function( oRequest, oResponse){
+
+  oResponse.render( "index", {
+
+    "name": "Dylan Schirino"
+
+  } ); // pour lui dire quel template on utilise ! donc index dans views et le deuxieme parametre c'est un objet avec des variables
+
+
+
+
+  ### Boucle avec handlebars.js
+
+      <ul>
+        {{#each buddies}}
+          <li>
+            <strong>{{name}}</strong>
+            <em>{{description}}</em>
+          </li>
+        {{/each}}
+      </ul>

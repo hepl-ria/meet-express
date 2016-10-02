@@ -1,0 +1,15 @@
+h2.hidden= "Un texte haut en couleurs"
+
+div.col-md-4
+  h3= "L'album des coupaing"
+  div.row#buddies-container
+
+    each buddyElement in buddies
+      div.col-md-4
+        div(class="thumbnail", title=buddyElement.description)
+          img(src="http://api.adorable.io/avatars/90/"+buddyElement.name+".png", alt="Avatar de "+buddyElement.name, width="90" height="90")
+        div.caption
+          strong= buddyElement.name
+    else
+      div.col-md-12
+        div.well= "Vous n'avez pas encore ajouté de coupaing"
