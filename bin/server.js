@@ -9,6 +9,7 @@ var express = require( "express" ),
     bodyParser = require( "body-parser" ), // Permet d'interpreter les requêtes en post
     logMiddleWare = require( "./middlewares/log" ), // on peut ne pas mettre le .js à log
     mainRoutes = require( "./routes/main" ),
+    pug = require ('pug'),
     oApp;
 
 // setup express

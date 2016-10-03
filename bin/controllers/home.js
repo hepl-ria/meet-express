@@ -19,13 +19,13 @@ module.exports = function( oRequest, oResponse ) { // la function que l'on a dé
       if (oSaveError) {
         console.log("SaveError:", oSaveError);
       }
-      oResponse.render( "index", {
+      oResponse.render( "index.pug", {
         "buddies": []
       } );
     } );
   }
 
-  oResponse.render( "index.hbs", {
+  oResponse.render( "index.pug", {
     "buddies": aBuddies || []
     } );
   } );

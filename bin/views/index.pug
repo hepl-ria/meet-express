@@ -1,0 +1,103 @@
+doctype html
+html(lang="fr")
+    head
+
+        meta(charset="utf-8")
+        title= "Meet AJAX"
+        link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+
+    body
+        main.container
+            header.row.page-header
+                h1.col-md-12
+                    span(lang="en")= "Meet Express"
+                    small= "Votre nouveau super coupaing"
+
+            section(class="content row")
+                h2.hidden= "Un texte haut en couleurs"
+                div.col-md-4
+                    h3= "L'album des coupaing"
+                    div.row#buddies-container
+                        each buddyElement in buddies
+                            div.col-md-4
+                                div(class="thumbnail", title=buddyElement.description)
+                                    img(src="http://api.adorable.io/avatars/90/" + buddyElement.name + ".png", alt="Avatar de " + buddyElement.name, width="90" height="90")
+                                div.caption
+                                    strong= buddyElement.name
+                        else
+                            div.col-md-12
+                                div.well= "Vous n'avez pas encore ajouté de coupaing"
+
+                div.col-md-4
+                    h3= "Ajouter un coupaing"
+                    form(action="./",method="post")
+                        fieldset
+                            if hasErrors
+                                div.alert.alert-danger
+                                    strong= "Oops !"
+                                    p= "On dirait que vous avez oublié de remplir chaque champs du formulaire !"
+                            if hasErrors
+                                div.form-group.has-error
+                            else
+                                div.form-group
+                                    label(clas="control-label",for="name")= "Nom"
+                                    if hasErrors
+                                        input(type="text" class="form-control" name="name" placeholder="Nom du coupaing" value=post.name)
+                                    else
+                                        input(type="text" class="form-control" name="name" placeholder="Nom du coupaing" value="")
+
+                            if hasErrors
+                                div.form-group.has-error
+                            else
+                                div.form-group
+                                    label(clas="control-label",for="description")= "Description:"
+                                    if hasErrors
+                                        textarea.form-control(name="description" placeholder="Description du coupaing" value=post.description)
+                                    else
+                                        textarea.form-control(name="description" placeholder="Description du coupaing" value="")
+
+                                    p.help-block= "Faites court, on manque de place !"
+                                div.text-center
+                                    button(type="submit", class="btn btn-info")= "Ajouter un coupaing"
+                    hr
+                    h3= "Supprimer les coupaing"
+                    p= "Ils seront perdus à jamais, mais vous pourrez toujours en créer d'autres…"
+                    div.text-center
+                        a(href="./?clean",class="btn btn-danger")= "Supprimer les coupaing"
+
+                div.col-md-4
+                    h3="Qu'est-ce qui se passe ici?"
+                    p="Sur cette page, un script PHP affiche une série de"
+                    em=" coupaings stockés dans un fichier json."
+                    p= "Un formulaire permet d'ajouter un nouveau coupaing et de la sauvegarder, toujours via PHP."
+                    hr
+                    h3= "Qu'est-ce qu'on va faire?"
+                    p
+                        | Chaque ajout de coupaing entraîne un rechargement de la page, cest quand même pas très cool. Grâce à
+                        strong=" Jquery"
+                        | , nous allons faire cette opération en AJAX.
+                        br
+                        | Ca va nous demander de modifier
+                        em=" un peu "
+                        | le code PHP.
+
+            hr
+            footer.row
+                div.col-md-6.col-md-offset-6.text-right
+                    small="MMI 2015-2016 - "
+                    a(href="https://github.com/hepl-mmi/meet-ajax")="hepl-mmi/meet-ajax"
+
+            script#form-error-message(type="text/template")
+                div.alert.alert-danger
+                    strong="Oops!"
+                    p="On dirait que vous avez oublié de remplir chaque champs du formulaire !"
+
+            script#buddy-element(type="text/template")
+                div.col-md-4
+                    div.thumbnail(title="")
+                        img(src="",alt="",width="90",height="90")
+                        div.caption
+                            strong
+            script(src="js/jquery.min.js")
+            script(src="js/script.js")
+
