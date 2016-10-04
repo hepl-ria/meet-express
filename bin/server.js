@@ -30,7 +30,7 @@ oApp.use( express.static( __dirname + "/../static" ) );
 
 // configure template engine
 oApp.set( "views", __dirname + "/views" );
-oApp.set( "view engine", "hbs" );
+oApp.set( "view engine", "pug" );
 
 // configure routes
 oApp.use( mainRoutes );
