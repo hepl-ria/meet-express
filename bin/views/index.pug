@@ -1,22 +1,19 @@
 doctype html
-html(lang="fr")
+html(lang='fr')
     head
-
-        meta(charset="utf-8")
-        title= "Meet AJAX"
-        link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
-
+        meta(charset='utf-8')
+        title(lang='en') Meet ExpressJS
+        link(rel='stylesheet', href='css/bootstrap.min.css')
     body
         main.container
             header.row.page-header
                 h1.col-md-12
-                    span(lang="en")= "Meet Express"
-                    small= "Votre nouveau super coupaing"
-
-            section(class="content row")
-                h2.hidden= "Un texte haut en couleurs"
+                    span(lang='en') Meet ExpressJS
+                    small Votre nouveau super-coupaing
+            section.content.row
+                h2.hidden  Un exercice haut en couleurs&mldr;
                 div.col-md-4
-                    h3= "L'album des coupaing"
+                    h3 L'album des coupaings
                     div.row#buddies-container
                         each buddyElement in buddies
                             div.col-md-4
@@ -26,16 +23,16 @@ html(lang="fr")
                                     strong= buddyElement.name
                         else
                             div.col-md-12
-                                div.well= "Vous n'avez pas encore ajouté de coupaing"
+                                div.well Vous n'avez pas encore ajouté de coupaing
 
                 div.col-md-4
-                    h3= "Ajouter un coupaing"
+                    h3 Ajouter un coupaing
                     form(action="./",method="post")
                         fieldset
                             if hasErrors
                                 div.alert.alert-danger
-                                    strong= "Oops !"
-                                    p= "On dirait que vous avez oublié de remplir chaque champs du formulaire !"
+                                    strong Oops !
+                                    p On dirait que vous avez oublié de remplir chaque champs du formulaire !
                             if hasErrors
                                 div.form-group.has-error
                             else
@@ -50,35 +47,35 @@ html(lang="fr")
                                 div.form-group.has-error
                             else
                                 div.form-group
-                                    label(clas="control-label",for="description")= "Description:"
+                                    label(clas="control-label",for="description") Description:
                                     if hasErrors
                                         textarea.form-control(name="description" placeholder="Description du coupaing" value=post.description)
                                     else
                                         textarea.form-control(name="description" placeholder="Description du coupaing" value="")
 
-                                    p.help-block= "Faites court, on manque de place !"
+                                    p.help-block Faites court, on manque de place !
                                 div.text-center
-                                    button(type="submit", class="btn btn-info")= "Ajouter un coupaing"
+                                    button(type="submit", class="btn btn-info") Ajouter un coupaing
                     hr
-                    h3= "Supprimer les coupaing"
-                    p= "Ils seront perdus à jamais, mais vous pourrez toujours en créer d'autres…"
+                    h3 Supprimer les coupaing
+                    p Ils seront perdus à jamais, mais vous pourrez toujours en créer d'autres…
                     div.text-center
                         a(href="./?clean",class="btn btn-danger")= "Supprimer les coupaing"
 
                 div.col-md-4
-                    h3="Qu'est-ce qui se passe ici?"
-                    p="Sur cette page, un script PHP affiche une série de"
-                    em=" coupaings stockés dans un fichier json."
-                    p= "Un formulaire permet d'ajouter un nouveau coupaing et de la sauvegarder, toujours via PHP."
+                    h3 Qu'est-ce qui se passe ici?
+                    p Sur cette page, un script PHP affiche une série de
+                    em coupaings stockés dans un fichier json.
+                    p Un formulaire permet d’ajouter un nouveau coupaing et de la sauvegarder, toujours via PHP.
                     hr
-                    h3= "Qu'est-ce qu'on va faire?"
+                    h3 Qu'est-ce qu'on va faire?
                     p
                         | Chaque ajout de coupaing entraîne un rechargement de la page, cest quand même pas très cool. Grâce à
-                        strong=" Jquery"
+                        strong  Jquery
                         | , nous allons faire cette opération en AJAX.
                         br
                         | Ca va nous demander de modifier
-                        em=" un peu "
+                        em un peu
                         | le code PHP.
 
             hr
