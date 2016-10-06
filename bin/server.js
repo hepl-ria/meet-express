@@ -11,7 +11,8 @@ var express = require( "express" ),
     logMiddleware = require( "./middlewares/log" ),
     bodyParser = require( "body-parser" ),
     mainRoutes = require( "./routes/main" ),
-    responseTime = require( "response-time" ),
+    responseTime = require( "response-time" )
+    pug = require ( "pug" ),
     oApp;
 
 //setup express ( Créer une instance de express )
@@ -29,7 +30,7 @@ oApp.use( express.static( __dirname + "/../static" ) );
 
 //configure template engine
 oApp.set( "views", __dirname + "/views" );
-oApp.set( "view engine", "hbs" );
+oApp.set( "view engine", "pug" );
 //configure routes
 //Express: serveur web qui réagit à des routes. oApp c'est l'instance de express. Si on appelle "/" en get, la fonction qu'on écrit la, va etre executée.
 oApp.use( mainRoutes );

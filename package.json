@@ -19,5 +19,8 @@
     "express": "^4.14.0",
     "hbs": "^4.0.1",
     "response-time": "^2.3.1"
+  },
+  "devDependencies": {
+    "pug": "^2.0.0-beta6"
   }
 }
