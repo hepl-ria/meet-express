@@ -1,0 +1,24 @@
+{
+  "name": "meet-express",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Base exercise to discover express web framework for node.js",
+  "main": "bin/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuentinGeorge/meet-express.git"
+  },
+  "author": "quentin",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/QuentinGeorge/meet-express/issues"
+  },
+  "homepage": "https://github.com/QuentinGeorge/meet-express#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "hbs": "^4.0.1",
+    "pug": "^2.0.0-beta6",
+    "response-time": "^2.3.1"
+  }
+}
