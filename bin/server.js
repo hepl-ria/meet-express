@@ -10,6 +10,7 @@
 var express = require( "express" ),
     responseTime = require( "response-time" ),
     bodyParser = require( "body-parser" ),
+    pug = require( "pug" ),
     logMiddleware = require( "./middlewares/log" ), // on n'est pas obliger de donner le type de fichier (.js ou autre) dans un require
     mainRoutes = require( "./routes/main" ),
     oApp;
@@ -28,7 +29,7 @@ oApp.use( express.static( __dirname + "/../static" ) );
 
 // configure template engine
 oApp.set( "views", __dirname + "/views" );
-oApp.set( "view engine", "hbs" );
+oApp.set( "view engine", "pug" );
 
 // configure routes
 oApp.use( mainRoutes );
