@@ -11,8 +11,7 @@ var express = require( "express" ),
     logMiddleware = require( "./middlewares/log" ),
     bodyParser = require( "body-parser" ),
     mainRoutes = require( "./routes/main" ),
-    responseTime = require( "response-time" )
-    pug = require ( "pug" ),
+    responseTime = require( "response-time" ),
     oApp;
 
 //setup express ( Créer une instance de express )
